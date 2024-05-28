@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}InfraTie Solutions{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    
+    <div class="container-fluid vertical-align justify-content-center align-items-center">
+        <div id="id_rows" class="row row-cols-4 align-items-center">
+            <div class="col-2"></div>
+            <div id="id_img" class="col-4 fade-in-image" style="padding: 75px;">
+                <img class="border-0" src="{% static "user/media/logo.png" %}" />
+            </div>
+            <!--<div id="id_hidden_1" class="hidden"></div> These lines go with the commented out JavaScript
+            <div id="id_hidden_2" class="hidden"></div>-->
+            <div id="id_buttons" class="col-4" style="padding: 75px; margin-left: -75px;">
+                <ul style="list-style-type: none;">
+                    <li style="list-style-type: none;"><input style="width: 75%;" class="btn btn-primary" type="button" onclick="window.location.href='{% url 'login' %}';" value="Login" /></li>
+                    <li style="list-style-type: none;"><br/></li>
+                    <li style="list-style-type: none;"><input style="width: 75%;" class="btn btn-primary" type="button" onclick="window.location.href='{% url 'signup' %}';" value="Signup" /></li>
+                </ul>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script>
+    /* Only for mobile devices.. Bootstrap handles normal desktop views.
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
+            document.body.style.backgroundColor = "yellow";
+            document.getElementById("id_rows").className = "row row-cols-3 align-items-center";
+            document.getElementById("id_hidden_1").className = "col-2";
+            document.getElementById("id_hidden_2").className = "col-2";
+            document.getElementById("id_img").className = "col-8 fade-in-image";
+            document.getElementById("id_img").style.margin = "-60px";
+            document.getElementById("id_buttons").className = "col-8";
+
+            
+        } else {
+            document.body.style.backgroundColor = "pink";
+            document.getElementById("id_row").className = "row row-cols-4 align-items-center";
+            document.getElementById("id_hidden_1").className = "hidden";
+            document.getElementById("id_hidden_2").className = "hidden";
+            document.getElementById("id_img").className = "col-4 fade-in-image";
+            document.getElementById("id_buttons").className = "col-4";
+        }
+    }
+
+    var x = window.matchMedia("(max-width: 900px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
+    */
+</script>
+{% endblock %}

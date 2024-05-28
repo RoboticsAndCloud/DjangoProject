@@ -1,0 +1,80 @@
+sudo apt install python3.10
+
+virtualenv -p /usr/bin/python3.10 venv3.10_djan
+
+source ~/LF_Workspace/venv3.10_djan/bin/activate
+
+python -m pip install Django
+
+python3.10 -m pip install -r requirements.txt 
+
+
+
+ERROR: Ignored the following versions that require a different python version: 0.7.0 Requires-Python >=3.6,<3.9; 0.7.1 Requires-Python >=3.6,<3.9; 0.8.0 Requires-Python >=3.6,<3.9; 0.9.0 Requires-Python >=3.6,<3.9
+ERROR: Could not find a version that satisfies the requirement tensorflow-intel==2.13.0 (from versions: 0.0.1)
+ERROR: No matching distribution found for tensorflow-intel==2.13.0
+
+
+error:
+
+1) 
+Navigate to the project's directory cd infratie/infratie
+Install requirements pip3 install -r requirements.txt
+
+The requirements.txt not underthen folder infratie
+
+2)python3 manage.py makemigrations
+
+ModuleNotFoundError: No module named 'infratie'
+
+
+install mysql:
+https://www.datacamp.com/tutorial/set-up-and-configure-mysql-in-docker
+
+$ docker run --name test-mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql
+
+mysql -h localhost -P 3306 --protocol=tcp -u root -p123456
+
+CREATE SCHEMA infratie;
+
+
+/home/ascc/anaconda3/envs/gdalenv
+ 2019  conda create --name gdalenv
+ 2020  conda activate gdalenv
+ 2021  conda install -c conda-forge gdal
+
+
+
+
+
+mysql -u username -p database_name < file.sql
+
+password: 123456
+mysql -h localhost -P 3306 --protocol=tcp -u root -p  infratie < InfratieStructure.sql
+
+
+https://stackoverflow.com/questions/69084964/collation-utf8-general-ci-is-not-valid-for-character-set-utf8mb4
+sed -i 's/utf8mb4_0900_ai_ci/utf8_general_ci/g;s/utf8mb4/utf8/g' InfratieStructure.sql
+sed -i 's/utf8mb4_0900_ai_ci/utf8_general_ci/g' InfratieStructure.sql
+sed -i 's/CHARSET=utf8mb4/CHARSET=utf8/g' InfratieStructure.sql
+
+
+sed -i 's/utf8mb4_0900_ai_ci/utf8_general_ci/g;s/utf8mb4/utf8/g' InfratieStructure_all.sql
+sed -i 's/utf8mb4_0900_ai_ci/utf8_general_ci/g' InfratieStructure_all.sql
+sed -i 's/CHARSET=utf8mb4/CHARSET=utf8/g' InfratieStructure_all.sql
+
+
+mysql -h localhost -P 3306 --protocol=tcp -u root -p  infratie < InfratieStructure_all.sql
+
+
+
+mysql -h localhost -P 3306 --protocol=tcp -u root -p123456
+
+python manage.py createsuperuser
+
+
+
+http://127.0.0.1:8000/home/work_order/
+
+osu@gmail.com
+123456

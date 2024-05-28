@@ -1,0 +1,165 @@
+.vertical-align {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+}
+
+body {
+    font: 300 1rem 'Roboto', sans-serif !important;
+    background-image: url("../media/background.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    height: 100vh;
+}
+
+.form-control {
+    font: 300 1rem 'Roboto', sans-serif;
+
+    background-color: transparent !important;
+    color: white !important;
+
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+
+    /*
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    ^ Uncommenting these lines will unround the bottom corners on form-control forms
+    */
+    
+    border-right: 0 !important;
+    border-left: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 3px solid white !important;
+
+    margin: 0 auto !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.form-control:hover, .form-control:link, .form-control:active, .form-control:visited, .form-control:focus, input:-webkit-autofill {
+    
+    background-color: rgba(225, 225, 225, 0.1);
+    color: white;
+
+    
+    border-right: 0;
+    border-left: 0;
+    border-top: 3px;
+    border-bottom: 3px solid white;
+
+    outline: none !important;
+    box-shadow: none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #739fde inset !important;
+    -webkit-text-fill-color: black;
+}
+
+/* - Logo fade on index page - */
+.fade-in-image {
+    animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+}
+/* - - */
+
+/* - Setting colors - */
+a, a:visited, a:hover, p, h1, .password-info {
+    color: white;
+}
+
+/* Research these 
+   Make Orangization and Title field white instead of grey*/
+
+label, label select {
+    color: white;
+}
+
+label:active, label:hover, label:visited, label:focus {
+    color: white;
+}
+
+select + label[for=floatingTitle] {
+    color: white;
+}
+
+select:required:invalid {
+    color: white;
+}
+/* - - */
+
+/* - Set colors for form placeholders - */
+
+:active::-webkit-select-placeholder, :focus::-ms-select-placeholder { /* WebKit, Blink, Edge */
+    color: rgb(255, 255, 255, 0.25) !important;
+}
+:visited::-webkit-select-placeholder, :hover::-webkit-select-placeholder {
+    color: transparent;
+}
+:active:-moz-placeholder, :focus::-ms-select-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: rgb(255, 255, 255, 0.25) !important;
+    opacity:  1;
+}
+:visited:-moz-placeholder, :hover:-moz-placeholder {
+    color: transparent;
+}
+:active::-moz-placeholder, :focus::-ms-select-placeholder { /* Mozilla Firefox 19+ */
+    color: rgb(255, 255, 255, 0.25) !important;
+    opacity:  1;
+}
+:visited::-moz-placeholder, :hover::-moz-placeholder {
+    color: transparent;
+}
+:active:-ms-select-placeholder, :focus::-ms-select-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(255, 255, 255, 0.25) !important;
+}
+:visited:-ms-select-placeholder, :hover:-ms-select-placeholder {
+    color: transparent;
+}
+:active::-ms-select-placeholder, :focus::-ms-select-placeholder { /* Microsoft Edge */
+    color: rgb(255, 255, 255, 0.25) !important;
+}
+:visited::-ms-select-placeholder, :hover::-ms-select-placeholder {
+    color: transparent;
+}
+:active::placeholder, :focus::placeholder { /* Most modern browsers support this now. */
+   color: rgb(255, 255, 255, 0.25) !important;
+}
+:visited::placeholder, :hover::placeholder {
+    color: transparent;
+}
+/* - - */
+
+
+/* Remember me checkbox on login page*/
+#rememberMe {
+    padding: 0;
+}
+
+/* Set font for buttons*/
+.btn {
+    font: 300 1rem 'Roboto', sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+img {
+    height: 150%;
+    width: 150%;
+}
+
+select option {
+    color: black;
+}

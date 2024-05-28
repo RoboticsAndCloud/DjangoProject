@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'splashpage/media/FavIcon_16px-06.svg' %}"/>
+
+    <!-- Bootstrap 5.3 (CSS) -->
+    <link rel="stylesheet" type="text/css" href="{% static 'user/css/bootstrap.css' %}">
+    
+    <!-- Bootstrap Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'user/css/custom.css' %}">
+
+    <!-- Base CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'user/css/base.css' %}">
+
+    <!-- Google Font (Heebo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- JQuery 3.6.4 -->
+    <script src="{% static 'user/javascript/jquery.js' %}"></script>
+
+    <!-- Hotjar Tracking Code for my site -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:3421441,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+</head>
+<body style="background-image: url('{% static 'user/media/infratiebg.png' %}');">
+
+    <!-- Alert -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Bootstrap 5.3 (JS) -->
+    <script src="{% static 'user/javascript/bootstrap.js' %}"></script>
+
+    <!-- Fading Alert -->
+    <script>
+        $(function() {
+            setTimeout(function(){
+                if ($('.alert.alert-danger.alert-dismissible.fade.show').length > 0) {
+                    $('.alert.alert-danger.alert-dismissible.fade.show').fadeOut('slow', function() {
+                        $('.alert.alert-danger.alert-dismissible.fade.show').remove();
+                    });
+                }
+            }, 5000)
+        })
+    </script>
+    
+</body>
+</html>

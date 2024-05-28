@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% load static %}
+
+<!-- This is a test -->
+
+{% block content %}
+
+    <div id="desktopView" class="container-fluid d-flex flex-column min-vh-100 justify-content-center align-items-center">
+        <div class="card py-2 my-5">
+            <!-- <img id="infratieLogo" class="card-img-top mx-auto img-fluid" src="{% static 'user/media/new_logo.png' %}" alt="Infratie Logo"> -->
+            <img id="infratieLogo" class="card-img-top mx-auto img-fluid" src="{% static 'user/media/LogoNameLarge_Blue.png' %}" alt="Infratie Logo">
+            <div class="card-body">
+                <form id="loginForm" action="{% url 'login' %}" class="my-auto" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" value="login" name="form">
+                    <a id="createAccountLink" class="float-end" href="#"><span class="fs-6">Don't have an account? Create one!</span></a>
+                    <br/>
+                    <div class="form-floating mb-3 mt-1">
+                        <input type="email" class="form-control" id="loginEmailAddress" name="loginEmailAddress" placeholder="name@example.com">
+                        <label for="loginEmailAddress">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Password">
+                        <label for="loginPassword">Password</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                        <label class="form-check-label float-start pt-1" for="rememberMe">Remember me</label>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary w-50">Login</button>
+                    </div>
+                    <div class="mb-3">
+                        <a class="float-end" href="{% url 'reset_password' %}"><span class="fs-6">Forgot password? Click here</span></a>
+                    </div>
+                </form>
+
+
+                <form id="createAccountForm" action="{% url 'login' %}" method="POST" class="d-none">
+                    {% csrf_token %}
+                    <input type="hidden" value="signup" name="form">
+                    <a id="loginLink" class="float-end" href="#"><span class="fs-6">Already have an account? Login!</span></a>
+                    <br/>
+                    <div class="form-floating mb-3 mt-1">
+                        <input type="text" class="form-control" id="signupFirstName" name="signupFirstName" placeholder="John" aria-label="First name">
+                        <label for="signupFirstName">First name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="signupLastName" name="signupLastName" placeholder="Appleseed" aria-label="Last name">
+                        <label for="signupLastName">Last name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="signupEmail" name="signupEmail" placeholder="name@example.com" aria-label="Email">
+                        <label for="signupEmail">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="signupPassword" name="signupPassword" placeholder="Password" aria-label="Password">
+                        <label for="signupPassword">Password</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="signupConfirmPassword" name="signupConfirmPassword" placeholder="Password" aria-label="Confirm password">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="signupOrganization" name="signupOrganization" aria-label="Select your organization">
+                            <option selected>Select Organization</option>
+                            <option value="City_A">City A</option>
+                            <option value="City_B">City B</option>
+                            <option value="City_C">City C</option>
+                            <option value="Tulsa">Tulsa</option>
+                            <option value="Fort_Wayne">Fort Wayne</option>
+                            <option value="Stillwater">Stillwater</option>
+                            <option value="Laredo">Laredo</option>
+                            <option value="Baltimore">Baltimore</option>
+                            <option value="New_City">New City</option>
+                            <option value="Glenpool">Glenpool</option>
+                        </select>
+                        <label for="signupOrganization">Select your organization</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="signupTitle" name="signupTitle" aria-label="Select your title">
+                            <option selected>Select Title</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Ms.">Ms.</option>
+                        </select>
+                        <label for="signupTitle">Select your title</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="tel" class="form-control" id="signupPhone" name="signupPhone" placeholder="4055555555"  aria-label="Phone number">
+                        <label for="signupPhone">Phone Number</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="signupAccessCode" name="signupAccessCode" placeholder="Access Code"  aria-label="Access Code">
+                        <label for="signupAccessCode">Access Code</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobileView" class="container-fluid d-flex flex-column min-vh-100 justify-content-center align-items-center d-none">
+        <div class="card py-2 my-5">
+            <img id="infratieLogo" class="card-img-top mx-auto img-fluid" src="{% static 'user/media/new_logo.png' %}" alt="Infratie Logo">
+            <div class="card-body">
+                <span class="fs-6">Please login using a desktop machine or tablet device</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Get URL Parameters
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Based on URL parameter, display signup or login form (?form=signup)
+        if (urlParams.get("form") == "signup") {
+            $( '#createAccountForm' ).removeClass('d-none')
+            $( '#loginForm' ).addClass('d-none')
+        } else if (urlParams.get("form") == "login") {
+            $( '#createAccountForm' ).addClass('d-none')
+            $( '#loginForm' ).removeClass('d-none')
+        }
+
+        // Create Account Click Handler
+        $( '#createAccountLink' ).on('click', function(e) {
+            e.preventDefault()
+            $( '#createAccountForm' ).removeClass('d-none')
+            $( '#loginForm' ).addClass('d-none')
+        })
+
+        // Login Click Handler
+        $( '#loginLink' ).on('click', function(e) {
+            e.preventDefault()
+            // $( '.card' ).flip('toggle')
+            $( '#createAccountForm' ).addClass('d-none')
+            $( '#loginForm' ).removeClass('d-none')
+        })
+
+    </script>
+    
+{% endblock %}
